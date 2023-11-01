@@ -5,44 +5,51 @@
     --inhale-length: 4s;
     --hold-in-length: 4s;
   }
-  dot {
+  div {
     display: block;
-    width: 32px;
+    position: relative;
     aspect-ratio: 1 / 1;
     border-radius: 100%;
+    width: 32px;
+    animation-fill-mode: forwards;
     background-color: aqua;
-    animation-fill-mode: forwards;  
-    animation-name: 
-      exhale, 
-      hold-out, 
+    animation-iteration-count: infinite;
+    animation-name: exhale, hold-out, 
       inhale, 
       hold-in
     ;
-    animation-delay: 
+    animation-delay: 0s;
+      /*
       0, 
       var(--exhale-length), 
       calc(var(--exhale-length) + var(--hold-out-length)), 
       calc(var(--exhale-length) + var(--hold-out-length) + var(--inhale-length))
     ;
-    animation-duration: 
-      var(--exhale-length), 
-      calc(var(--exhale-length) + var(--hold-out-length)), 
-      calc(var(--exhale-length) + var(--hold-out-length) + var(--inhale-length))
-      calc(var(--exhale-length) + var(--hold-out-length) + var(--inhale-length) + var(--hold-in-length))
-    ;
+    */
+    animation-duration: 4s;
+      /*
+      var(--exhale-length),
+      var(--hold-out-length),
+      var(--inhale-length),
+      var(--hold-in-length)
+    ;*/
   }
 
   @keyframes exhale {
-    to { width: 32px };
+    0% { width: 320px }
+    100% { width: 32px }
   }
   @keyframes hold-out {
-    to { width: 32px };
+    from { width: 32px }
+    to { width: 32px }
   }
   @keyframes inhale {
-    to { width: 320px };
+    from { width: 32px }
+    to { width: 320px }
   }
   @keyframes hold-in {
-    to { width: 320px };
+    from { width: 320px }
+    to { width: 320px }
   }
 </style>
-<dot></dot>
+<div></div>
