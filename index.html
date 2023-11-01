@@ -1,0 +1,48 @@
+<style>
+  :root {
+    --exhale-length: 4s;
+    --hold-out-length: 4s;
+    --inhale-length: 4s;
+    --hold-in-length: 4s;
+  }
+  dot {
+    display: block;
+    width: 32px;
+    aspect-ratio: 1 / 1;
+    border-radius: 100%;
+    background-color: aqua;
+    animation-fill-mode: forwards;  
+    animation-name: 
+      exhale, 
+      hold-out, 
+      inhale, 
+      hold-in
+    ;
+    animation-delay: 
+      0, 
+      var(--exhale-length), 
+      calc(var(--exhale-length) + var(--hold-out-length)), 
+      calc(var(--exhale-length) + var(--hold-out-length) + var(--inhale-length))
+    ;
+    animation-duration: 
+      var(--exhale-length), 
+      calc(var(--exhale-length) + var(--hold-out-length)), 
+      calc(var(--exhale-length) + var(--hold-out-length) + var(--inhale-length))
+      calc(var(--exhale-length) + var(--hold-out-length) + var(--inhale-length) + var(--hold-in-length))
+    ;
+  }
+
+  @keyframes exhale {
+    to { width: 32px };
+  }
+  @keyframes hold-out {
+    to { width: 32px };
+  }
+  @keyframes inhale {
+    to { width: 320px };
+  }
+  @keyframes hold-in {
+    to { width: 320px };
+  }
+</style>
+<dot></dot>
